@@ -13,14 +13,13 @@
 		509B164625BB321000E20518 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509B164425BB321000E20518 /* LaunchScreen.storyboard */; };
 		509B165525BB32CB00E20518 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B165425BB32CB00E20518 /* HomeViewController.swift */; };
 		509B165825BB32EA00E20518 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B165725BB32EA00E20518 /* HomeViewModel.swift */; };
-		509B165D25BB338C00E20518 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B165C25BB338C00E20518 /* NetworkService.swift */; };
-		509B166025BB33A000E20518 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B165F25BB33A000E20518 /* DataService.swift */; };
 		509B166325BB33BA00E20518 /* CompanyName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B166225BB33BA00E20518 /* CompanyName.swift */; };
-		509B166625BB33CD00E20518 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B166525BB33CD00E20518 /* Location.swift */; };
-		509B166925BB33DE00E20518 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B166825BB33DE00E20518 /* Network.swift */; };
-		509B166C25BB33EE00E20518 /* NetworkFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B166B25BB33EE00E20518 /* NetworkFeed.swift */; };
 		509B166F25BB342600E20518 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B166E25BB342600E20518 /* UIView+Extensions.swift */; };
 		509B167325BB344B00E20518 /* NetworkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B167225BB344B00E20518 /* NetworkTableViewCell.swift */; };
+		50E4CC1F25BB89F9007B320D /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC1E25BB89F9007B320D /* NetworkingService.swift */; };
+		50E4CC2225BB8BA1007B320D /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC2125BB8BA1007B320D /* PersistenceService.swift */; };
+		50E4CC2725BB8D04007B320D /* BikeNetwork+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC2525BB8D04007B320D /* BikeNetwork+CoreDataClass.swift */; };
+		50E4CC2825BB8D04007B320D /* BikeNetwork+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC2625BB8D04007B320D /* BikeNetwork+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,14 +31,13 @@
 		509B164725BB321000E20518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		509B165425BB32CB00E20518 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		509B165725BB32EA00E20518 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		509B165C25BB338C00E20518 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		509B165F25BB33A000E20518 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		509B166225BB33BA00E20518 /* CompanyName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyName.swift; sourceTree = "<group>"; };
-		509B166525BB33CD00E20518 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		509B166825BB33DE00E20518 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		509B166B25BB33EE00E20518 /* NetworkFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFeed.swift; sourceTree = "<group>"; };
 		509B166E25BB342600E20518 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		509B167225BB344B00E20518 /* NetworkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTableViewCell.swift; sourceTree = "<group>"; };
+		50E4CC1E25BB89F9007B320D /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		50E4CC2125BB8BA1007B320D /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		50E4CC2525BB8D04007B320D /* BikeNetwork+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BikeNetwork+CoreDataClass.swift"; sourceTree = "<group>"; };
+		50E4CC2625BB8D04007B320D /* BikeNetwork+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BikeNetwork+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +87,8 @@
 		509B164F25BB324800E20518 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				509B165C25BB338C00E20518 /* NetworkService.swift */,
-				509B165F25BB33A000E20518 /* DataService.swift */,
+				50E4CC1E25BB89F9007B320D /* NetworkingService.swift */,
+				50E4CC2125BB8BA1007B320D /* PersistenceService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -98,10 +96,8 @@
 		509B165025BB325100E20518 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				50B43B3025BB6B1D00999345 /* BikeNetwork */,
 				509B166225BB33BA00E20518 /* CompanyName.swift */,
-				509B166525BB33CD00E20518 /* Location.swift */,
-				509B166825BB33DE00E20518 /* Network.swift */,
-				509B166B25BB33EE00E20518 /* NetworkFeed.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,6 +133,15 @@
 				509B167225BB344B00E20518 /* NetworkTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		50B43B3025BB6B1D00999345 /* BikeNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				50E4CC2625BB8D04007B320D /* BikeNetwork+CoreDataProperties.swift */,
+				50E4CC2525BB8D04007B320D /* BikeNetwork+CoreDataClass.swift */,
+			);
+			path = BikeNetwork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,17 +213,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				509B165D25BB338C00E20518 /* NetworkService.swift in Sources */,
 				509B163725BB320900E20518 /* AppDelegate.swift in Sources */,
-				509B166625BB33CD00E20518 /* Location.swift in Sources */,
 				509B164125BB320900E20518 /* bikeFinder.xcdatamodeld in Sources */,
-				509B166C25BB33EE00E20518 /* NetworkFeed.swift in Sources */,
-				509B166025BB33A000E20518 /* DataService.swift in Sources */,
-				509B166925BB33DE00E20518 /* Network.swift in Sources */,
+				50E4CC2725BB8D04007B320D /* BikeNetwork+CoreDataClass.swift in Sources */,
+				50E4CC2225BB8BA1007B320D /* PersistenceService.swift in Sources */,
 				509B165825BB32EA00E20518 /* HomeViewModel.swift in Sources */,
+				50E4CC2825BB8D04007B320D /* BikeNetwork+CoreDataProperties.swift in Sources */,
 				509B165525BB32CB00E20518 /* HomeViewController.swift in Sources */,
 				509B166325BB33BA00E20518 /* CompanyName.swift in Sources */,
 				509B167325BB344B00E20518 /* NetworkTableViewCell.swift in Sources */,
+				50E4CC1F25BB89F9007B320D /* NetworkingService.swift in Sources */,
 				509B166F25BB342600E20518 /* UIView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

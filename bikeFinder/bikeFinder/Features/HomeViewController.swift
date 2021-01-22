@@ -29,6 +29,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        title = "Bike Finder"
+        
         viewModel.fetchData { (error) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()

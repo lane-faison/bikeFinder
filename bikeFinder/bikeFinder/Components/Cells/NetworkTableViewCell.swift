@@ -23,8 +23,8 @@ final class NetworkTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(withNetwork network: Network) {
-        titleLabel.text = network.name
+    func configure(withNetwork network: BikeNetwork) {
+        titleLabel.text = network.networkName
     }
     
     private func setupCell() {
