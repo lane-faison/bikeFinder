@@ -2,12 +2,13 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BikeNetwork" representedClassName="BikeNetwork" syncable="YES" codeGenerationType="class">
         <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="company" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="country" optional="YES" attributeType="String"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="networkName" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="BikeNetwork" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="BikeNetwork" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>

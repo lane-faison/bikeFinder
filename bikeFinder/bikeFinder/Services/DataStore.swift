@@ -42,6 +42,14 @@ class DataStore: NSObject {
                         network.country = country
                         network.latitude = latitude
                         network.longitude = longitude
+                        
+                        if let companyName = $0["company"] as? [String] {
+                            network.company = companyName
+                        } else if let companyName = $0["company"] as? String {
+                            network.company = [companyName]
+                        } else {
+                            network.company = nil
+                        }
                     }
                     
                     DispatchQueue.main.async {
