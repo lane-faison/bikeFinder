@@ -31,12 +31,17 @@ class DataStore: NSObject {
                               let location = $0["location"] as? [String: Any],
                               let networkName = $0["name"] as? String,
                               let city = location["city"] as? String,
-                              let country = location["country"] as? String, city == "Aspen, CO" else { return }
+                              let country = location["country"] as? String,
+                              let latitude = location["latitude"] as? Double,
+                              let longitude = location["longitude"] as? Double,
+                              city == "Aspen, CO" else { return }
                         
                         let network = BikeNetwork(context: self.persistence.context)
                         network.networkName = networkName
                         network.city = city
                         network.country = country
+                        network.latitude = latitude
+                        network.longitude = longitude
                     }
                     
                     DispatchQueue.main.async {

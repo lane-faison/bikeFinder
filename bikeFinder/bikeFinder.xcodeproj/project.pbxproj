@@ -17,8 +17,6 @@
 		509B167325BB344B00E20518 /* NetworkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509B167225BB344B00E20518 /* NetworkTableViewCell.swift */; };
 		50E4CC1F25BB89F9007B320D /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC1E25BB89F9007B320D /* NetworkingService.swift */; };
 		50E4CC2225BB8BA1007B320D /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC2125BB8BA1007B320D /* PersistenceService.swift */; };
-		50E4CC2725BB8D04007B320D /* BikeNetwork+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC2525BB8D04007B320D /* BikeNetwork+CoreDataClass.swift */; };
-		50E4CC2825BB8D04007B320D /* BikeNetwork+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC2625BB8D04007B320D /* BikeNetwork+CoreDataProperties.swift */; };
 		50E4CC6A25BBDBEE007B320D /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC6925BBDBEE007B320D /* DataStore.swift */; };
 		50E4CC6D25BBDCF4007B320D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC6C25BBDCF4007B320D /* Endpoint.swift */; };
 /* End PBXBuildFile section */
@@ -36,8 +34,6 @@
 		509B167225BB344B00E20518 /* NetworkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTableViewCell.swift; sourceTree = "<group>"; };
 		50E4CC1E25BB89F9007B320D /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		50E4CC2125BB8BA1007B320D /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
-		50E4CC2525BB8D04007B320D /* BikeNetwork+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BikeNetwork+CoreDataClass.swift"; sourceTree = "<group>"; };
-		50E4CC2625BB8D04007B320D /* BikeNetwork+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BikeNetwork+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		50E4CC6925BBDBEE007B320D /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		50E4CC6C25BBDCF4007B320D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,8 +137,6 @@
 		50B43B3025BB6B1D00999345 /* BikeNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				50E4CC2625BB8D04007B320D /* BikeNetwork+CoreDataProperties.swift */,
-				50E4CC2525BB8D04007B320D /* BikeNetwork+CoreDataClass.swift */,
 			);
 			path = BikeNetwork;
 			sourceTree = "<group>";
@@ -220,10 +214,8 @@
 				509B163725BB320900E20518 /* AppDelegate.swift in Sources */,
 				50E4CC6A25BBDBEE007B320D /* DataStore.swift in Sources */,
 				509B164125BB320900E20518 /* bikeFinder.xcdatamodeld in Sources */,
-				50E4CC2725BB8D04007B320D /* BikeNetwork+CoreDataClass.swift in Sources */,
 				50E4CC2225BB8BA1007B320D /* PersistenceService.swift in Sources */,
 				509B165825BB32EA00E20518 /* HomeViewModel.swift in Sources */,
-				50E4CC2825BB8D04007B320D /* BikeNetwork+CoreDataProperties.swift in Sources */,
 				509B165525BB32CB00E20518 /* HomeViewController.swift in Sources */,
 				509B167325BB344B00E20518 /* NetworkTableViewCell.swift in Sources */,
 				50E4CC1F25BB89F9007B320D /* NetworkingService.swift in Sources */,

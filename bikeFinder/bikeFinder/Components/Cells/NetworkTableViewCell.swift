@@ -31,6 +31,11 @@ final class NetworkTableViewCell: UITableViewCell {
         return l
     }()
     
+    private let coordinateLabel: UILabel = {
+        let l = UILabel()
+        return l
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCell()
@@ -43,13 +48,14 @@ final class NetworkTableViewCell: UITableViewCell {
     func configure(withNetwork network: BikeNetwork) {
         nameLabel.text = network.networkName
         locationLabel.text = "\(network.city ?? ""), \(network.country ?? "")"
+        coordinateLabel.text = "lat: \(network.latitude), long: \(network.longitude)"
     }
     
     private func setupCell() {
         selectionStyle = .none
         backgroundColor = .clear
         
-        let stack = verticalStack(nameLabel, locationLabel, spacing: 4, alignment: .leading, distribution: .fill)
+        let stack = verticalStack(nameLabel, locationLabel, coordinateLabel, spacing: 4, alignment: .leading, distribution: .fill)
         container.addSubview(stack)
         stack.activateEdgeConstraints(withEdgeInsets: .init(top: 12, left: 12, bottom: 12, right: 12))
         
