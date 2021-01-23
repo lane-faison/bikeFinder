@@ -25,15 +25,28 @@ class PersistenceService {
         return container
     }()
     
-    func save() {
+    func save(completion: @escaping () -> Void) {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
+                completion()
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+    
+    func fetch<T: NSManagedObject>(_ type: T.Type, completion: @escaping ([T]) -> Void) {
+        let request = NSFetchRequest<T>(entityName: String(describing: type))
+        
+        do {
+            let objects = try context.fetch(request)
+            completion(objects)
+        } catch let error {
+            print("Error fetching persisted objects: \(error)")
+            completion([])
         }
     }
 }

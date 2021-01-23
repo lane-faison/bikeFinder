@@ -14,6 +14,10 @@ class HomeViewController: UIViewController {
         let tv = UITableView()
         tv.delegate = self
         tv.dataSource = self
+        tv.backgroundColor = .clear
+        tv.estimatedRowHeight = 100
+        tv.rowHeight = UITableView.automaticDimension
+        tv.contentInset = .init(top: 12, left: 0, bottom: 0, right: 0)
         return tv
     }()
     
@@ -27,17 +31,16 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .lightGray
         
         title = "Bike Finder"
         
-        viewModel.fetchData { (error) in
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
         registerTableViewCells()
         setupView()
+        
+        viewModel.requestData {
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -57,8 +60,8 @@ extension HomeViewController {
 
 extension HomeViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
 }
 
