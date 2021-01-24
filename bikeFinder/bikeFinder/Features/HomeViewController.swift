@@ -50,7 +50,7 @@ extension HomeViewController {
     
     private func setupView() {
         view.addSubview(tableView)
-        tableView.activateEdgeConstraints()
+        tableView.activateEdgeConstraints(useBottomSafeAreaLayout: false)
     }
     
     private func registerTableViewCells() {

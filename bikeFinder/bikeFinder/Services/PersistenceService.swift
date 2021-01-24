@@ -26,7 +26,6 @@ class PersistenceService {
     }()
     
     func save(completion: @escaping () -> Void) {
-        let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
@@ -35,6 +34,8 @@ class PersistenceService {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        } else {
+            completion()
         }
     }
     

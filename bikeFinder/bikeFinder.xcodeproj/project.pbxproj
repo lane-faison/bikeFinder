@@ -19,6 +19,7 @@
 		50E4CC2225BB8BA1007B320D /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC2125BB8BA1007B320D /* PersistenceService.swift */; };
 		50E4CC6A25BBDBEE007B320D /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC6925BBDBEE007B320D /* DataStore.swift */; };
 		50E4CC6D25BBDCF4007B320D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC6C25BBDCF4007B320D /* Endpoint.swift */; };
+		50E4CC7425BCF771007B320D /* NSAttributedStringTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC7325BCF771007B320D /* NSAttributedStringTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		50E4CC2125BB8BA1007B320D /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		50E4CC6925BBDBEE007B320D /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		50E4CC6C25BBDCF4007B320D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		50E4CC7325BCF771007B320D /* NSAttributedStringTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				509B166E25BB342600E20518 /* UIView+Extensions.swift */,
+				50E4CC7325BCF771007B320D /* NSAttributedStringTransformer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				509B164125BB320900E20518 /* bikeFinder.xcdatamodeld in Sources */,
 				50E4CC2225BB8BA1007B320D /* PersistenceService.swift in Sources */,
 				509B165825BB32EA00E20518 /* HomeViewModel.swift in Sources */,
+				50E4CC7425BCF771007B320D /* NSAttributedStringTransformer.swift in Sources */,
 				509B165525BB32CB00E20518 /* HomeViewController.swift in Sources */,
 				509B167325BB344B00E20518 /* NetworkTableViewCell.swift in Sources */,
 				50E4CC1F25BB89F9007B320D /* NetworkingService.swift in Sources */,

@@ -19,6 +19,16 @@ class DataStore: NSObject {
     static let shared = DataStore()
     
     func requestNetworks(completion: @escaping ([BikeNetwork]) -> Void) {
+        var networkIds: [String]
+        
+        do {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: BikeNetwork.self))
+            let fetchResult = try self.persistence.context.fetch(fetchRequest)
+            networkIds = fetchResult.compactMap { ($0 as? BikeNetwork)?.id }
+        } catch {
+            networkIds = []
+        }
+        
         networking.request(Endpoint.networks.urlPath) { [weak self] (result) in
             switch result {
             case .success(let data):
@@ -26,29 +36,33 @@ class DataStore: NSObject {
                     guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                           let networksArray = json["networks"] as? [[String: Any]] else { return }
                     
-                    networksArray.forEach {
+                    for network in networksArray {
                         guard let self = self,
-                              let location = $0["location"] as? [String: Any],
-                              let networkName = $0["name"] as? String,
+                              let location = network["location"] as? [String: Any],
+                              let id = network["id"] as? String,
+                              let networkName = network["name"] as? String,
                               let city = location["city"] as? String,
                               let country = location["country"] as? String,
                               let latitude = location["latitude"] as? Double,
-                              let longitude = location["longitude"] as? Double,
-                              city == "Aspen, CO" else { return }
+                              let longitude = location["longitude"] as? Double
+                        else { break }
                         
-                        let network = BikeNetwork(context: self.persistence.context)
-                        network.networkName = networkName
-                        network.city = city
-                        network.country = country
-                        network.latitude = latitude
-                        network.longitude = longitude
-                        
-                        if let companyName = $0["company"] as? [String] {
-                            network.company = companyName
-                        } else if let companyName = $0["company"] as? String {
-                            network.company = [companyName]
-                        } else {
-                            network.company = nil
+                        if !networkIds.contains(id) {
+                            let newNetwork = BikeNetwork(context: self.persistence.context)
+                            newNetwork.id = id
+                            newNetwork.networkName = networkName
+                            newNetwork.city = city
+                            newNetwork.country = country
+                            newNetwork.latitude = latitude
+                            newNetwork.longitude = longitude
+                            
+                            if let companyName = network["company"] as? [String] {
+                                newNetwork.company = companyName
+                            } else if let companyName = network["company"] as? String {
+                                newNetwork.company = [companyName]
+                            } else {
+                                newNetwork.company = nil
+                            }
                         }
                     }
                     
