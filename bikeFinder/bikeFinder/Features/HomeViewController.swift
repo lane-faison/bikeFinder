@@ -68,21 +68,23 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.networkList.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.networks.count
+//        return viewModel.networkList[section].sectionNetworks.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < viewModel.networks.count {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "networkCell", for: indexPath) as? NetworkTableViewCell {
-                cell.configure(withNetwork: viewModel.networks[indexPath.row])
-                return cell
-            } else {
-                return UITableViewCell()
-            }
-        } else {
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "networkCell", for: indexPath) as! NetworkTableViewCell
+        cell.configure(withNetwork: viewModel.networkList[indexPath.section].sectionNetworks[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.networkList[section].sectionName
     }
 }
 

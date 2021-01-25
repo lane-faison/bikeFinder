@@ -20,6 +20,7 @@
 		50E4CC6A25BBDBEE007B320D /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC6925BBDBEE007B320D /* DataStore.swift */; };
 		50E4CC6D25BBDCF4007B320D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC6C25BBDCF4007B320D /* Endpoint.swift */; };
 		50E4CC7425BCF771007B320D /* NSAttributedStringTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CC7325BCF771007B320D /* NSAttributedStringTransformer.swift */; };
+		50E4CCB125BE4557007B320D /* NetworkSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCB025BE4557007B320D /* NetworkSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		50E4CC6925BBDBEE007B320D /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		50E4CC6C25BBDCF4007B320D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		50E4CC7325BCF771007B320D /* NSAttributedStringTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringTransformer.swift; sourceTree = "<group>"; };
+		50E4CCB025BE4557007B320D /* NetworkSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,7 @@
 		509B165025BB325100E20518 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				50B43B3025BB6B1D00999345 /* BikeNetwork */,
+				50E4CCB025BE4557007B320D /* NetworkSection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,13 +137,6 @@
 				509B167225BB344B00E20518 /* NetworkTableViewCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		50B43B3025BB6B1D00999345 /* BikeNetwork */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BikeNetwork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +210,7 @@
 			files = (
 				50E4CC6D25BBDCF4007B320D /* Endpoint.swift in Sources */,
 				509B163725BB320900E20518 /* AppDelegate.swift in Sources */,
+				50E4CCB125BE4557007B320D /* NetworkSection.swift in Sources */,
 				50E4CC6A25BBDBEE007B320D /* DataStore.swift in Sources */,
 				509B164125BB320900E20518 /* bikeFinder.xcdatamodeld in Sources */,
 				50E4CC2225BB8BA1007B320D /* PersistenceService.swift in Sources */,
