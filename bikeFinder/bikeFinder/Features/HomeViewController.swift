@@ -32,7 +32,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Bike Finder"
-        
         registerTableViewCells()
         setupView()
         

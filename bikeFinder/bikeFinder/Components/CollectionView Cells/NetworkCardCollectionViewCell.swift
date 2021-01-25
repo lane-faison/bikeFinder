@@ -40,7 +40,7 @@ class NetworkCardCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(vStack)
         vStack.activateEdgeConstraints(withEdgeInsets: .init(top: 10, left: 10, bottom: 10, right: 10))
         
-        contentView.layer.cornerRadius = 4.0
+        contentView.layer.cornerRadius = 10.0
         contentView.layer.borderWidth = 1.0
         contentView.layer.borderColor = UIColor.gray.cgColor
         contentView.layer.masksToBounds = true

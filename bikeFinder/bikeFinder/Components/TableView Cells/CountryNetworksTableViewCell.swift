@@ -30,6 +30,7 @@ final class CountryNetworksTableViewCell: UITableViewCell {
         cv.delegate = self
         cv.dataSource = self
         cv.backgroundColor = .clear
+        cv.showsHorizontalScrollIndicator = false
         cv.contentInset = .init(top: 0, left: 10, bottom: 0, right: 10)
         cv.register(NetworkCardCollectionViewCell.self, forCellWithReuseIdentifier: NetworkCardCollectionViewCell.identifier)
         return cv
@@ -62,6 +63,7 @@ final class CountryNetworksTableViewCell: UITableViewCell {
     func configure(forCountry country: String, networks: [BikeNetwork]) {
         self.countryLabel.text = country
         self.networks = networks
+        collectionView.reloadData()
     }
     
     override func prepareForReuse() {
