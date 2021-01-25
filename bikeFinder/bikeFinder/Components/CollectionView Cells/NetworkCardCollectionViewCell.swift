@@ -9,11 +9,7 @@ import UIKit
 
 class NetworkCardCollectionViewCell: UICollectionViewCell {
 
-    static let reuseIdentifier = "NetworkCardCollectionViewCell"
-    
-    static func nib() -> UINib {
-        return UINib(nibName: "NetworkCardCollectionViewCell", bundle: nil)
-    }
+    static let identifier = String(describing: self)
     
     private let nameLabel: UILabel = {
         let l = UILabel()
@@ -55,5 +51,12 @@ class NetworkCardCollectionViewCell: UICollectionViewCell {
     func configure(with network: BikeNetwork) {
         nameLabel.text = network.networkName
         cityLabel.text = network.city
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        nameLabel.text = nil
+        cityLabel.text = nil
     }
 }

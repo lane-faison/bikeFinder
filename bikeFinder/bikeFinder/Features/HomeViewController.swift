@@ -31,13 +31,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for family in UIFont.familyNames {
-                print("family:", family)
-                for font in UIFont.fontNames(forFamilyName: family) {
-                    print("font:", font)
-                }
-            }
-        
         title = "Bike Finder"
         
         registerTableViewCells()
@@ -59,7 +52,7 @@ extension HomeViewController {
     }
     
     private func registerTableViewCells() {
-        tableView.register(CountryNetworksTableViewCell.self, forCellReuseIdentifier: CountryNetworksTableViewCell.reuseIdentifier)
+        tableView.register(CountryNetworksTableViewCell.self, forCellReuseIdentifier: CountryNetworksTableViewCell.identifier)
     }
 }
 
@@ -75,7 +68,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CountryNetworksTableViewCell.reuseIdentifier, for: indexPath) as! CountryNetworksTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CountryNetworksTableViewCell.identifier, for: indexPath) as! CountryNetworksTableViewCell
         let section = viewModel.networkList[indexPath.section]
         cell.configure(forCountry: section.sectionFlag, networks: section.sectionNetworks)
         return cell
