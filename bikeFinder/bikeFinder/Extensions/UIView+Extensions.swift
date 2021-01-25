@@ -9,6 +9,11 @@ import UIKit
 
 extension UIView {
     
+    static var bottomInsetHeight: CGFloat {
+        let window = UIApplication.shared.windows[0]
+        return window.safeAreaInsets.bottom
+    }
+    
     /**
      Activates an array of NSLayoutConstraint objects that relates this view's top, leading, bottom and trailing to its superview, given an optional set of insets for each side.
      Default parameter values relate this view's top, leading, bottom and trailing to its superview with no insets.

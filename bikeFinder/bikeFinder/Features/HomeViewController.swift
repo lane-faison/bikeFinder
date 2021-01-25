@@ -14,10 +14,11 @@ class HomeViewController: UIViewController {
         let tv = UITableView()
         tv.delegate = self
         tv.dataSource = self
+        tv.separatorStyle = .none
         tv.backgroundColor = .clear
         tv.estimatedRowHeight = 100
         tv.rowHeight = UITableView.automaticDimension
-        tv.contentInset = .init(top: 12, left: 0, bottom: 0, right: 0)
+        tv.contentInset = .init(top: 12, left: 0, bottom: UIView.bottomInsetHeight, right: 0)
         return tv
     }()
     
