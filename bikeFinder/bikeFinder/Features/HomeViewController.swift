@@ -15,10 +15,8 @@ class HomeViewController: UIViewController {
         tv.delegate = self
         tv.dataSource = self
         tv.separatorStyle = .none
-        tv.backgroundColor = .clear
-        tv.estimatedRowHeight = 100
-        tv.rowHeight = UITableView.automaticDimension
-        tv.contentInset = .init(top: 12, left: 0, bottom: UIView.bottomInsetHeight, right: 0)
+        tv.backgroundColor = UIColor(hex: "#2A85ECFF")
+        tv.contentInset = .init(top: 0, left: 0, bottom: UIView.bottomInsetHeight, right: 0)
         return tv
     }()
     
@@ -32,7 +30,13 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
+        
+        for family in UIFont.familyNames {
+                print("family:", family)
+                for font in UIFont.fontNames(forFamilyName: family) {
+                    print("font:", font)
+                }
+            }
         
         title = "Bike Finder"
         
@@ -55,36 +59,26 @@ extension HomeViewController {
     }
     
     private func registerTableViewCells() {
-        tableView.register(NetworkTableViewCell.self, forCellReuseIdentifier: "networkCell")
+        tableView.register(CountryNetworksTableViewCell.self, forCellReuseIdentifier: CountryNetworksTableViewCell.reuseIdentifier)
     }
 }
 
-extension HomeViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
-}
+extension HomeViewController: UITableViewDelegate {}
 
 extension HomeViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.networkList.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return viewModel.networkList[section].sectionNetworks.count
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "networkCell", for: indexPath) as! NetworkTableViewCell
-        cell.configure(withNetwork: viewModel.networkList[indexPath.section].sectionNetworks[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: CountryNetworksTableViewCell.reuseIdentifier, for: indexPath) as! CountryNetworksTableViewCell
+        let section = viewModel.networkList[indexPath.section]
+        cell.configure(forCountry: section.sectionFlag, networks: section.sectionNetworks)
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.networkList[section].sectionName
     }
 }
 
