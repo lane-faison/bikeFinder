@@ -7,6 +7,16 @@
 
 import UIKit
 
+private class Constants {
+    static let iconDimension: CGFloat = 14
+    static let nameLabelHeight: CGFloat = 30
+    static let mainStackInsets: UIEdgeInsets = .init(top: 0, left: 0, bottom: 10, right: 0)
+    static let cardCornerRadius: CGFloat = 10
+    static let borderWidth: CGFloat = 1
+    static let highlightedBorderWidth: CGFloat = 2
+    static let spacing: CGFloat = 4
+}
+
 final class NetworkCardCollectionViewCell: UICollectionViewCell {
 
     static let identifier = String(describing: self)
@@ -41,7 +51,7 @@ final class NetworkCardCollectionViewCell: UICollectionViewCell {
     
     override var isHighlighted: Bool {
         didSet {
-            contentView.layer.borderWidth = isHighlighted ? 2 : 1
+            contentView.layer.borderWidth = isHighlighted ? Constants.highlightedBorderWidth : Constants.borderWidth
         }
     }
     
@@ -53,22 +63,6 @@ final class NetworkCardCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func setupCell() {
-        let companyStack = horizontalStack(spacer(), listIconImageView(for: AppImages.business).withDimension(14), companyLabel, spacer(), spacing: 4, alignment: .leading)
-        let locationStack = horizontalStack(spacer(), listIconImageView(for: AppImages.locationMarker).withDimension(14), cityLabel, spacer(), spacing: 4, alignment: .leading)
-        let mainStack = verticalStack(nameLabel.withHeight(30), companyStack, locationStack, spacing: 4, distribution: .equalSpacing)
-        
-        contentView.addSubview(mainStack)
-        mainStack.activateEdgeConstraints(withEdgeInsets: .init(top: 0, left: 0, bottom: 10, right: 0))
-        
-        contentView.layer.cornerRadius = 10.0
-        contentView.layer.borderWidth = 1.0
-        contentView.layer.borderColor = UIColor.gray.cgColor
-        contentView.layer.masksToBounds = true
-        contentView.layer.backgroundColor = UIColor.white.cgColor
-    }
-    
     
     func configure(with network: BikeNetwork) {
         nameLabel.text = network.networkName
@@ -89,8 +83,23 @@ final class NetworkCardCollectionViewCell: UICollectionViewCell {
 
 extension NetworkCardCollectionViewCell {
     
+    private func setupCell() {
+        let companyStack = horizontalStack(spacer(), listIconImageView(for: AppImages.business).withDimension(Constants.iconDimension), companyLabel, spacer(), spacing: Constants.spacing, alignment: .leading)
+        let locationStack = horizontalStack(spacer(), listIconImageView(for: AppImages.locationMarker).withDimension(Constants.iconDimension), cityLabel, spacer(), spacing: Constants.spacing, alignment: .leading)
+        let mainStack = verticalStack(nameLabel.withHeight(Constants.nameLabelHeight), companyStack, locationStack, spacing: Constants.spacing, distribution: .equalSpacing)
+        
+        contentView.addSubview(mainStack)
+        mainStack.activateEdgeConstraints(withEdgeInsets: Constants.mainStackInsets)
+        
+        contentView.layer.cornerRadius = Constants.cardCornerRadius
+        contentView.layer.borderWidth = Constants.borderWidth
+        contentView.layer.borderColor = AppColors.dividerColor?.cgColor
+        contentView.layer.masksToBounds = true
+        contentView.layer.backgroundColor = UIColor.white.cgColor
+    }
+    
     private func spacer() -> UIView {
-        return UIView().withWidth(4)
+        return UIView().withWidth(Constants.spacing)
     }
     
     private func listIconImageView(for icon: UIImage) -> UIImageView {

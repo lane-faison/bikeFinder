@@ -11,5 +11,6 @@ final class AppFonts {
     static let fontFamilyName: String = "ArialRoundedMTBold"
     
     static let title = UIFont(name: fontFamilyName, size: 12)
+    static let largeTitle = UIFont(name: fontFamilyName, size: 20)
     static let subtitle = UIFont(name: fontFamilyName, size: 10)
 }

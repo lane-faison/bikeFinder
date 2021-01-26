@@ -16,4 +16,5 @@ final class AppColors {
     static let primaryTextColor = UIColor(hex: "#212121FF")   // dark grey
     static let secondaryTextColor = UIColor(hex: "#757575FF") // grey
     static let dividerColor = UIColor(hex: "#BDBDBDFF")       // light grey
+    static let error = UIColor.red
 }

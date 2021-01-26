@@ -10,5 +10,7 @@ import UIKit
 final class AppImages {
     static let bicycle = UIImage(imageLiteralResourceName: "bicycle")
     static let business = UIImage(imageLiteralResourceName: "business")
-    static let locationMarker = UIImage(imageLiteralResourceName: "outline_place_black")
+    static let locationMarker = UIImage(imageLiteralResourceName: "marker")
+    static let zoomIn = UIImage(imageLiteralResourceName: "zoomIn")
+    static let zoomOut = UIImage(imageLiteralResourceName: "zoomOut")
 }

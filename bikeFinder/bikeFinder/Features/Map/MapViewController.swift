@@ -28,6 +28,7 @@ final class MapViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
+        setupAppBarButtons()
         addAndShowLocations()
         
         Toast.showHint(type: .info,
@@ -45,6 +46,19 @@ extension MapViewController {
         map.activateEdgeConstraints()
     }
     
+    private func setupAppBarButtons() {
+        let zoomInButton = UIBarButtonItem(image: AppImages.zoomIn,
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(zoomIn))
+        let zoomOutButton = UIBarButtonItem(image: AppImages.zoomOut,
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(zoomOut))
+        
+        navigationItem.rightBarButtonItems = [zoomInButton, zoomOutButton]
+    }
+    
     private func addAndShowLocations() {
         map.addAnnotations(viewModel.networkLocations)
         
@@ -57,9 +71,29 @@ extension MapViewController {
         }
         map.showAnnotations(annotationsToShow, animated: true)
     }
+    
+    @objc private func zoomIn() {
+        zoom(delta: 0.5)
+    }
+    
+    @objc private func zoomOut() {
+        zoom(delta: 2)
+    }
+    
+    private func zoom(delta: Double) {
+        var region: MKCoordinateRegion = self.map.region
+        var span: MKCoordinateSpan = map.region.span
+        span.latitudeDelta *= delta
+        span.longitudeDelta *= delta
+        region.span = span
+        map.setRegion(region, animated: true)
+    }
 }
 
+// MARK: - MKMapViewDelegate
+
 extension MapViewController: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation is NetworkLocation else { return nil }
 

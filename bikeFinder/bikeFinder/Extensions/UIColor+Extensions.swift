@@ -8,6 +8,8 @@
 import UIKit
 
 extension UIColor {
+    
+    // Converts a Hex String into a UIColor
     public convenience init?(hex: String) {
         let r, g, b, a: CGFloat
 

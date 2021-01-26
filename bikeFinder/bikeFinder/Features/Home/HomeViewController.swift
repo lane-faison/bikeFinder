@@ -7,7 +7,21 @@
 
 import UIKit
 
+private class Constants {
+    static let activityIndicatorFrame: CGRect = CGRect(x: 0, y: 0, width: 20, height: 20)
+    static let tableViewContentInsets: UIEdgeInsets = .init(top: 0,
+                                                            left: 0,
+                                                            bottom: UIView.bottomInsetHeight,
+                                                            right: 0)
+}
+
 final class HomeViewController: UIViewController {
+    
+    private let activityIndicator: UIActivityIndicatorView = {
+        let ai = UIActivityIndicatorView(frame: Constants.activityIndicatorFrame)
+        ai.color = .white
+        return ai
+    }()
     
     private lazy var tableView: UITableView = {
         let tv = UITableView()
@@ -15,7 +29,7 @@ final class HomeViewController: UIViewController {
         tv.dataSource = self
         tv.separatorStyle = .none
         tv.backgroundColor = AppColors.dividerColor
-        tv.contentInset = .init(top: 0, left: 0, bottom: UIView.bottomInsetHeight, right: 0)
+        tv.contentInset = Constants.tableViewContentInsets
         return tv
     }()
     
@@ -38,16 +52,18 @@ final class HomeViewController: UIViewController {
         
         viewModel.store.delegate = self
         
+        activityIndicator.startAnimating()
         viewModel.requestData { [weak self] (error) in
             if let error = error {
                 Toast.showHint(type: .error, messageTitle: error.localizedDescription, actionTitle: "DISMISS")
             }
             self?.tableView.reloadData()
+            self?.activityIndicator.stopAnimating()
         }
     }
 }
 
-// MARK: UI Helpers
+// MARK: - UI Helpers
 
 extension HomeViewController {
     
@@ -56,6 +72,9 @@ extension HomeViewController {
         navigationController?.navigationBar.tintColor = AppColors.textPrimaryColor
         navigationController?.navigationBar.barTintColor = AppColors.primaryColor
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: AppColors.textPrimaryColor ?? .white]
+        
+        let barButton = UIBarButtonItem(customView: activityIndicator)
+        self.navigationItem.setRightBarButton(barButton, animated: true)
     }
     
     private func registerTableViewCells() {

@@ -28,10 +28,14 @@ extension UIView {
         if let superview = superview {
             translatesAutoresizingMaskIntoConstraints = false
             edgeConstraints = [
-                topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor, constant: insets.top),
-                leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor, constant: insets.left),
-                trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor, constant: -insets.right),
-                bottomAnchor.constraint(equalTo: useBottomSafeAreaLayout ? superview.safeAreaLayoutGuide.bottomAnchor : superview.bottomAnchor, constant: -insets.bottom)
+                topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor,
+                                     constant: insets.top),
+                leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor,
+                                         constant: insets.left),
+                trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor,
+                                          constant: -insets.right),
+                bottomAnchor.constraint(equalTo: useBottomSafeAreaLayout ? superview.safeAreaLayoutGuide.bottomAnchor : superview.bottomAnchor,
+                                        constant: -insets.bottom)
             ]
             NSLayoutConstraint.activate(edgeConstraints)
         }
@@ -59,16 +63,20 @@ extension UIView {
         var edgeConstraints = [NSLayoutConstraint]()
         
         if let top = top {
-            edgeConstraints.append(topAnchor.constraint(equalTo: top, constant: insets.top))
+            edgeConstraints.append(topAnchor.constraint(equalTo: top,
+                                                        constant: insets.top))
         }
         if let bottom = bottom {
-            edgeConstraints.append(bottomAnchor.constraint(equalTo: bottom, constant: -insets.bottom))
+            edgeConstraints.append(bottomAnchor.constraint(equalTo: bottom,
+                                                           constant: -insets.bottom))
         }
         if let left = left {
-            edgeConstraints.append(leadingAnchor.constraint(equalTo: left, constant: insets.left))
+            edgeConstraints.append(leadingAnchor.constraint(equalTo: left,
+                                                            constant: insets.left))
         }
         if let right = right {
-            edgeConstraints.append(trailingAnchor.constraint(equalTo: right, constant: -insets.right))
+            edgeConstraints.append(trailingAnchor.constraint(equalTo: right,
+                                                             constant: -insets.right))
         }
         if let height = height {
             edgeConstraints.append(heightAnchor.constraint(equalToConstant: height))

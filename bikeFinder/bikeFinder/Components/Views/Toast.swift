@@ -23,7 +23,7 @@ class Toast {
         
         switch type {
         case .error:
-            MDCSnackbarManager.default.snackbarMessageViewBackgroundColor = .red
+            MDCSnackbarManager.default.snackbarMessageViewBackgroundColor = AppColors.error
         case .info:
             MDCSnackbarManager.default.snackbarMessageViewBackgroundColor = AppColors.darkPrimaryColor
         }

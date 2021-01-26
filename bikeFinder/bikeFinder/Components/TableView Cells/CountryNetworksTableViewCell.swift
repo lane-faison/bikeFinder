@@ -11,12 +11,24 @@ protocol CountryNetworkCellDelegate: class {
     func bikeNetworkTapped(at index: Int, inNetworks networks: [BikeNetwork])
 }
 
+private class Constants {
+    static let cardSize: CGSize = .init(width: 150, height: 100)
+    static let collectionViewHeight: CGFloat = 100
+    static let collectionViewInsets: UIEdgeInsets = .init(top: 0, left: 0, bottom: 10, right: 0)
+    static let collectionViewContentInsets: UIEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 10)
+    static let containerInsets: UIEdgeInsets = .init(top: 0, left: 0, bottom: 10, right: 0)
+    static let countryLabelInsets: UIEdgeInsets = .init(top: 10, left: 10, bottom: 0, right: 0)
+    static let countryLabelHeight: CGFloat = 30
+}
+
 final class CountryNetworksTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: self)
     
     private let countryLabel: UILabel = {
         let l = UILabel()
+        l.font = AppFonts.largeTitle
+        l.textColor = AppColors.primaryTextColor
         return l
     }()
     
@@ -34,7 +46,7 @@ final class CountryNetworksTableViewCell: UITableViewCell {
         cv.dataSource = self
         cv.backgroundColor = .clear
         cv.showsHorizontalScrollIndicator = false
-        cv.contentInset = .init(top: 0, left: 10, bottom: 0, right: 10)
+        cv.contentInset = Constants.collectionViewContentInsets
         cv.register(NetworkCardCollectionViewCell.self, forCellWithReuseIdentifier: NetworkCardCollectionViewCell.identifier)
         return cv
     }()
@@ -63,11 +75,10 @@ final class CountryNetworksTableViewCell: UITableViewCell {
         
         networks.removeAll()
         countryLabel.text = nil
-        
     }
 }
 
-// MARK: UI Helpers
+// MARK: - UI Helpers
 
 extension CountryNetworksTableViewCell {
     
@@ -75,17 +86,25 @@ extension CountryNetworksTableViewCell {
         selectionStyle = .none
         backgroundColor = .clear
         contentView.addSubview(container)
-        container.activateEdgeConstraints(withEdgeInsets: .init(top: 0, left: 0, bottom: 10, right: 0))
+        container.activateEdgeConstraints(withEdgeInsets: Constants.containerInsets)
         
         container.addSubview(countryLabel)
-        countryLabel.anchor(top: container.topAnchor, left: container.leadingAnchor, insets: .init(top: 10, left: 10, bottom: 0, right: 0), height: 30)
+        countryLabel.anchor(top: container.topAnchor,
+                            left: container.leadingAnchor,
+                            insets: Constants.countryLabelInsets,
+                            height: Constants.countryLabelHeight)
         
         container.addSubview(collectionView)
-        collectionView.anchor(top: countryLabel.bottomAnchor, left: container.leadingAnchor, bottom: container.bottomAnchor, right: container.trailingAnchor, insets: .init(top: 0, left: 0, bottom: 10, right: 0), height: 100)
+        collectionView.anchor(top: countryLabel.bottomAnchor,
+                              left: container.leadingAnchor,
+                              bottom: container.bottomAnchor,
+                              right: container.trailingAnchor,
+                              insets: Constants.collectionViewInsets,
+                              height: Constants.collectionViewHeight)
     }
 }
 
-// MARK: UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 
 extension CountryNetworksTableViewCell: UICollectionViewDataSource {
     
@@ -113,6 +132,6 @@ extension CountryNetworksTableViewCell: UICollectionViewDelegate {
 extension CountryNetworksTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 100)
+        return Constants.cardSize
     }
 }

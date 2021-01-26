@@ -13,15 +13,15 @@ final class MapViewModel {
     
     private let highlightedNetworkIndex: Int?
     
+    init(bikeNetworks: [BikeNetwork], highlightedNetworkIndex: Int?) {
+        self.networkLocations = bikeNetworks.map { NetworkLocation(network: $0) }
+        self.highlightedNetworkIndex = highlightedNetworkIndex
+    }
+    
     var highlightedNetwork: NetworkLocation? {
         if let index = highlightedNetworkIndex {
             return networkLocations[index]
         }
         return nil
-    }
-    
-    init(bikeNetworks: [BikeNetwork], highlightedNetworkIndex: Int?) {
-        self.networkLocations = bikeNetworks.map { NetworkLocation(network: $0) }
-        self.highlightedNetworkIndex = highlightedNetworkIndex
     }
 }
