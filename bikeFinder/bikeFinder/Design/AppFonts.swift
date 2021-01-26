@@ -9,7 +9,7 @@ import UIKit
 
 
 
-class AppFonts {
+final class AppFonts {
     static let fontFamilyName: String = "ArialRoundedMTBold"
     
     static let title = UIFont(name: fontFamilyName, size: 12)

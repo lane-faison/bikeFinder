@@ -9,9 +9,15 @@ import Foundation
 
 class HomeViewModel {
     
+    let viewTitle: String = "City Bikes"
+    
     let store = DataStore.shared
     
-    var networkList: [NetworkSection] = []
+    private var networkList: [NetworkSection] = []
+    
+    var getNetworkList: [NetworkSection] {
+        return networkList
+    }
     
     func requestData(completion: @escaping () -> Void) {
         store.requestNetworks { [weak self] (networks) in

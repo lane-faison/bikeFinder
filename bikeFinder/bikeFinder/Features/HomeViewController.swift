@@ -7,15 +7,14 @@
 
 import UIKit
 
-
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.delegate = self
         tv.dataSource = self
         tv.separatorStyle = .none
-        tv.backgroundColor = UIColor(hex: "#2A85ECFF")
+        tv.backgroundColor = AppColors.dividerColor
         tv.contentInset = .init(top: 0, left: 0, bottom: UIView.bottomInsetHeight, right: 0)
         return tv
     }()
@@ -31,7 +30,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Bike Finder"
+        title = viewModel.viewTitle
+        
+        setupNavigationBar()
         registerTableViewCells()
         setupView()
         
@@ -45,21 +46,32 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     
-    private func setupView() {
-        view.addSubview(tableView)
-        tableView.activateEdgeConstraints(useBottomSafeAreaLayout: false)
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.navigationBar.barTintColor = AppColors.primaryColor
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: AppColors.textPrimaryColor ?? .white]
     }
     
     private func registerTableViewCells() {
         tableView.register(CountryNetworksTableViewCell.self, forCellReuseIdentifier: CountryNetworksTableViewCell.identifier)
     }
+    
+    private func setupView() {
+        view.addSubview(tableView)
+        tableView.activateEdgeConstraints(useBottomSafeAreaLayout: false)
+    }
 }
+
+// MARK: - UITableViewDelegate
 
 extension HomeViewController: UITableViewDelegate {}
 
+// MARK: - UITableViewDataSource
+
 extension HomeViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.networkList.count
+        return viewModel.getNetworkList.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,9 +80,8 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CountryNetworksTableViewCell.identifier, for: indexPath) as! CountryNetworksTableViewCell
-        let section = viewModel.networkList[indexPath.section]
+        let section = viewModel.getNetworkList[indexPath.section]
         cell.configure(forCountry: section.sectionFlag, networks: section.sectionNetworks)
         return cell
     }
 }
-

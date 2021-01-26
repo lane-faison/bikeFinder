@@ -24,6 +24,8 @@
 		50E4CCC125BE9329007B320D /* NetworkCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCBF25BE9329007B320D /* NetworkCardCollectionViewCell.swift */; };
 		50E4CCC725BF5762007B320D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCC625BF5762007B320D /* UIColor+Extensions.swift */; };
 		50E4CCCB25BF5A6E007B320D /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCCA25BF5A6E007B320D /* AppFonts.swift */; };
+		50E4CCD425BFDAD2007B320D /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCD325BFDAD2007B320D /* AppColors.swift */; };
+		50E4CCD725BFE1E6007B320D /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCD625BFE1E6007B320D /* AppImages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		50E4CCBF25BE9329007B320D /* NetworkCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		50E4CCC625BF5762007B320D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		50E4CCCA25BF5A6E007B320D /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		50E4CCD325BFDAD2007B320D /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		50E4CCD625BFE1E6007B320D /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +171,9 @@
 		50E4CCC925BF5A60007B320D /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				50E4CCD325BFDAD2007B320D /* AppColors.swift */,
 				50E4CCCA25BF5A6E007B320D /* AppFonts.swift */,
+				50E4CCD625BFE1E6007B320D /* AppImages.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50E4CCD725BFE1E6007B320D /* AppImages.swift in Sources */,
 				50E4CC6D25BBDCF4007B320D /* Endpoint.swift in Sources */,
 				509B163725BB320900E20518 /* AppDelegate.swift in Sources */,
 				50E4CCB125BE4557007B320D /* NetworkSection.swift in Sources */,
@@ -254,6 +261,7 @@
 				509B167325BB344B00E20518 /* CountryNetworksTableViewCell.swift in Sources */,
 				50E4CC1F25BB89F9007B320D /* NetworkingService.swift in Sources */,
 				50E4CCC725BF5762007B320D /* UIColor+Extensions.swift in Sources */,
+				50E4CCD425BFDAD2007B320D /* AppColors.swift in Sources */,
 				509B166F25BB342600E20518 /* UIView+Extensions.swift in Sources */,
 				50E4CCC125BE9329007B320D /* NetworkCardCollectionViewCell.swift in Sources */,
 			);

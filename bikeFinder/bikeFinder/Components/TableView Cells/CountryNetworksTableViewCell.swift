@@ -19,7 +19,6 @@ final class CountryNetworksTableViewCell: UITableViewCell {
     private let container: UIView = {
         let v = UIView()
         v.backgroundColor = .white
-        v.layer.cornerRadius = 10
         return v
     }()
     
@@ -51,7 +50,7 @@ final class CountryNetworksTableViewCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = .clear
         contentView.addSubview(container)
-        container.activateEdgeConstraints(withEdgeInsets: .init(top: 10, left: 10, bottom: 10, right: 10))
+        container.activateEdgeConstraints(withEdgeInsets: .init(top: 0, left: 0, bottom: 10, right: 0))
         
         container.addSubview(countryLabel)
         countryLabel.anchor(top: container.topAnchor, left: container.leadingAnchor, insets: .init(top: 10, left: 10, bottom: 0, right: 0), height: 30)
