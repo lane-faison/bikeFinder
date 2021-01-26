@@ -56,7 +56,7 @@ extension MapViewController {
                                             target: self,
                                             action: #selector(zoomOut))
         
-        navigationItem.rightBarButtonItems = [zoomInButton, zoomOutButton]
+        navigationItem.rightBarButtonItems = [zoomOutButton, zoomInButton]
     }
     
     private func addAndShowLocations() {
