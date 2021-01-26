@@ -48,6 +48,7 @@ extension HomeViewController {
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.navigationBar.tintColor = AppColors.textPrimaryColor
         navigationController?.navigationBar.barTintColor = AppColors.primaryColor
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: AppColors.textPrimaryColor ?? .white]
     }
@@ -82,6 +83,18 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CountryNetworksTableViewCell.identifier, for: indexPath) as! CountryNetworksTableViewCell
         let section = viewModel.getNetworkList[indexPath.section]
         cell.configure(forCountry: section.sectionFlag, networks: section.sectionNetworks)
+        cell.delegate = self
         return cell
+    }
+}
+
+// MARK: - CountryNetworkCellDelegate
+
+extension HomeViewController: CountryNetworkCellDelegate {
+    
+    func bikeNetworkTapped(at index: Int, inNetworks networks: [BikeNetwork]) {
+        let mapVM = MapViewModel(bikeNetworks: networks, highlightedNetworkIndex: index)
+        let mapVC = MapViewController.instantiate(with: mapVM)
+        navigationController?.pushViewController(mapVC, animated: true)
     }
 }

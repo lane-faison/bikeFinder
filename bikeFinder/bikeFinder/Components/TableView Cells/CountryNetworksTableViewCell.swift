@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CountryNetworkCellDelegate: class {
+    func bikeNetworkTapped(at index: Int, inNetworks networks: [BikeNetwork])
+}
+
 final class CountryNetworksTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: self)
@@ -37,6 +41,8 @@ final class CountryNetworksTableViewCell: UITableViewCell {
     
     private var networks: [BikeNetwork] = []
     
+    weak var delegate: CountryNetworkCellDelegate?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCell()
@@ -44,19 +50,6 @@ final class CountryNetworksTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupCell() {
-        selectionStyle = .none
-        backgroundColor = .clear
-        contentView.addSubview(container)
-        container.activateEdgeConstraints(withEdgeInsets: .init(top: 0, left: 0, bottom: 10, right: 0))
-        
-        container.addSubview(countryLabel)
-        countryLabel.anchor(top: container.topAnchor, left: container.leadingAnchor, insets: .init(top: 10, left: 10, bottom: 0, right: 0), height: 30)
-        
-        container.addSubview(collectionView)
-        collectionView.anchor(top: countryLabel.bottomAnchor, left: container.leadingAnchor, bottom: container.bottomAnchor, right: container.trailingAnchor, insets: .init(top: 0, left: 0, bottom: 10, right: 0), height: 100)
     }
     
     func configure(forCountry country: String, networks: [BikeNetwork]) {
@@ -74,6 +67,24 @@ final class CountryNetworksTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: UI Helpers
+
+extension CountryNetworksTableViewCell {
+    
+    private func setupCell() {
+        selectionStyle = .none
+        backgroundColor = .clear
+        contentView.addSubview(container)
+        container.activateEdgeConstraints(withEdgeInsets: .init(top: 0, left: 0, bottom: 10, right: 0))
+        
+        container.addSubview(countryLabel)
+        countryLabel.anchor(top: container.topAnchor, left: container.leadingAnchor, insets: .init(top: 10, left: 10, bottom: 0, right: 0), height: 30)
+        
+        container.addSubview(collectionView)
+        collectionView.anchor(top: countryLabel.bottomAnchor, left: container.leadingAnchor, bottom: container.bottomAnchor, right: container.trailingAnchor, insets: .init(top: 0, left: 0, bottom: 10, right: 0), height: 100)
+    }
+}
+
 // MARK: UICollectionViewDataSource
 
 extension CountryNetworksTableViewCell: UICollectionViewDataSource {
@@ -84,7 +95,6 @@ extension CountryNetworksTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NetworkCardCollectionViewCell.identifier, for: indexPath) as! NetworkCardCollectionViewCell
-        print("Index: \(indexPath.row) - Total: \(networks.count)")
         cell.configure(with: networks[indexPath.row])
         return cell
     }
@@ -93,7 +103,9 @@ extension CountryNetworksTableViewCell: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 
 extension CountryNetworksTableViewCell: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.bikeNetworkTapped(at: indexPath.row, inNetworks: networks)
+    }
 }
 
 // MARK: - UICollectionViewDelegate

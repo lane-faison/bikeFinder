@@ -26,6 +26,9 @@
 		50E4CCCB25BF5A6E007B320D /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCCA25BF5A6E007B320D /* AppFonts.swift */; };
 		50E4CCD425BFDAD2007B320D /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCD325BFDAD2007B320D /* AppColors.swift */; };
 		50E4CCD725BFE1E6007B320D /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCD625BFE1E6007B320D /* AppImages.swift */; };
+		50E4CCE225C06EF3007B320D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCE125C06EF3007B320D /* MapViewController.swift */; };
+		50E4CCE625C06F05007B320D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCE525C06F05007B320D /* MapViewModel.swift */; };
+		50E4CCE925C0701B007B320D /* NetworkLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCE825C0701B007B320D /* NetworkLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		50E4CCCA25BF5A6E007B320D /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		50E4CCD325BFDAD2007B320D /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		50E4CCD625BFE1E6007B320D /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
+		50E4CCE125C06EF3007B320D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		50E4CCE525C06F05007B320D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		50E4CCE825C0701B007B320D /* NetworkLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				50E4CCB025BE4557007B320D /* NetworkSection.swift */,
+				50E4CCE825C0701B007B320D /* NetworkLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -119,8 +126,8 @@
 		509B165125BB325800E20518 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				509B165425BB32CB00E20518 /* HomeViewController.swift */,
-				509B165725BB32EA00E20518 /* HomeViewModel.swift */,
+				50E4CCE025C06EE6007B320D /* Map */,
+				50E4CCDE25C06EDE007B320D /* Home */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -176,6 +183,24 @@
 				50E4CCD625BFE1E6007B320D /* AppImages.swift */,
 			);
 			path = Design;
+			sourceTree = "<group>";
+		};
+		50E4CCDE25C06EDE007B320D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				509B165425BB32CB00E20518 /* HomeViewController.swift */,
+				509B165725BB32EA00E20518 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		50E4CCE025C06EE6007B320D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				50E4CCE125C06EF3007B320D /* MapViewController.swift */,
+				50E4CCE525C06F05007B320D /* MapViewModel.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,12 +283,15 @@
 				509B165825BB32EA00E20518 /* HomeViewModel.swift in Sources */,
 				50E4CC7425BCF771007B320D /* NSAttributedStringTransformer.swift in Sources */,
 				509B165525BB32CB00E20518 /* HomeViewController.swift in Sources */,
+				50E4CCE625C06F05007B320D /* MapViewModel.swift in Sources */,
 				509B167325BB344B00E20518 /* CountryNetworksTableViewCell.swift in Sources */,
 				50E4CC1F25BB89F9007B320D /* NetworkingService.swift in Sources */,
+				50E4CCE225C06EF3007B320D /* MapViewController.swift in Sources */,
 				50E4CCC725BF5762007B320D /* UIColor+Extensions.swift in Sources */,
 				50E4CCD425BFDAD2007B320D /* AppColors.swift in Sources */,
 				509B166F25BB342600E20518 /* UIView+Extensions.swift in Sources */,
 				50E4CCC125BE9329007B320D /* NetworkCardCollectionViewCell.swift in Sources */,
+				50E4CCE925C0701B007B320D /* NetworkLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

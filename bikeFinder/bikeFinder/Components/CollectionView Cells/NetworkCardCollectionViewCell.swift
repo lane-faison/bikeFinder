@@ -17,7 +17,7 @@ final class NetworkCardCollectionViewCell: UICollectionViewCell {
         l.textColor = AppColors.primaryTextColor
         l.backgroundColor = AppColors.accentColor
         l.textAlignment = .center
-        l.numberOfLines = 2
+        l.numberOfLines = 1
         return l
     }()
     
@@ -26,7 +26,7 @@ final class NetworkCardCollectionViewCell: UICollectionViewCell {
         l.font = AppFonts.subtitle
         l.textColor = AppColors.secondaryTextColor
         l.textAlignment = .left
-        l.numberOfLines = 3
+        l.numberOfLines = 2
         return l
     }()
     
@@ -39,6 +39,12 @@ final class NetworkCardCollectionViewCell: UICollectionViewCell {
         return l
     }()
     
+    override var isHighlighted: Bool {
+        didSet {
+            contentView.layer.borderWidth = isHighlighted ? 2 : 1
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()
@@ -49,9 +55,9 @@ final class NetworkCardCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupCell() {
-        let companyStack = horizontalStack(spacer(), listIconImageView(for: AppImages.business).withDimension(14), companyLabel, spacing: 4, alignment: .leading)
-        let locationStack = horizontalStack(spacer(), listIconImageView(for: AppImages.locationMarker).withDimension(14), cityLabel, spacing: 4, alignment: .leading)
-        let mainStack = verticalStack(nameLabel.withHeight(40), companyStack, locationStack, spacing: 4, distribution: .equalSpacing)
+        let companyStack = horizontalStack(spacer(), listIconImageView(for: AppImages.business).withDimension(14), companyLabel, spacer(), spacing: 4, alignment: .leading)
+        let locationStack = horizontalStack(spacer(), listIconImageView(for: AppImages.locationMarker).withDimension(14), cityLabel, spacer(), spacing: 4, alignment: .leading)
+        let mainStack = verticalStack(nameLabel.withHeight(30), companyStack, locationStack, spacing: 4, distribution: .equalSpacing)
         
         contentView.addSubview(mainStack)
         mainStack.activateEdgeConstraints(withEdgeInsets: .init(top: 0, left: 0, bottom: 10, right: 0))
