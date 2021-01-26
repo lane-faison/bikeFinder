@@ -29,6 +29,10 @@ final class MapViewController: UIViewController {
         
         setupView()
         addAndShowLocations()
+        
+        Toast.showHint(type: .info,
+                       messageTitle: "Zoom out to see other location(s)",
+                       actionTitle: "DISMISS")
     }
 }
 
@@ -54,12 +58,6 @@ extension MapViewController {
         map.showAnnotations(annotationsToShow, animated: true)
     }
 }
-
-extension MKPinAnnotationView {
-     class func bluePinColor() -> UIColor {
-         return UIColor.blue
-     }
- }
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

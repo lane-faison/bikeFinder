@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,9 +29,12 @@
 		50E4CCE225C06EF3007B320D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCE125C06EF3007B320D /* MapViewController.swift */; };
 		50E4CCE625C06F05007B320D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCE525C06F05007B320D /* MapViewModel.swift */; };
 		50E4CCE925C0701B007B320D /* NetworkLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCE825C0701B007B320D /* NetworkLocation.swift */; };
+		50E4CCF125C088E8007B320D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCF025C088E8007B320D /* Toast.swift */; };
+		A8CA8A4159772109E76565AA /* Pods_bikeFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328E75FE95A34E896D56325 /* Pods_bikeFinder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0328E75FE95A34E896D56325 /* Pods_bikeFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bikeFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		509B163325BB320900E20518 /* bikeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bikeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		509B163625BB320900E20518 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		509B164025BB320900E20518 /* bikeFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bikeFinder.xcdatamodel; sourceTree = "<group>"; };
@@ -56,6 +59,9 @@
 		50E4CCE125C06EF3007B320D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		50E4CCE525C06F05007B320D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		50E4CCE825C0701B007B320D /* NetworkLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLocation.swift; sourceTree = "<group>"; };
+		50E4CCF025C088E8007B320D /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		55C17549FA7C7CECCE4ADBB5 /* Pods-bikeFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bikeFinder.debug.xcconfig"; path = "Target Support Files/Pods-bikeFinder/Pods-bikeFinder.debug.xcconfig"; sourceTree = "<group>"; };
+		D25701D9C8D5946E5BB46765 /* Pods-bikeFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bikeFinder.release.xcconfig"; path = "Target Support Files/Pods-bikeFinder/Pods-bikeFinder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,17 +69,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8CA8A4159772109E76565AA /* Pods_bikeFinder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2435A5C878D6F3E06682AD42 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55C17549FA7C7CECCE4ADBB5 /* Pods-bikeFinder.debug.xcconfig */,
+				D25701D9C8D5946E5BB46765 /* Pods-bikeFinder.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		509B162A25BB320900E20518 = {
 			isa = PBXGroup;
 			children = (
 				509B163525BB320900E20518 /* bikeFinder */,
 				509B163425BB320900E20518 /* Products */,
+				2435A5C878D6F3E06682AD42 /* Pods */,
+				83264E9FDC3CAA9AE20767E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,6 +181,7 @@
 		50E4CCB725BE4E7A007B320D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				50E4CCF025C088E8007B320D /* Toast.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +222,14 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		83264E9FDC3CAA9AE20767E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0328E75FE95A34E896D56325 /* Pods_bikeFinder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -210,9 +237,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 509B164A25BB321000E20518 /* Build configuration list for PBXNativeTarget "bikeFinder" */;
 			buildPhases = (
+				524DE7DCC9D3F3A5C2D967DA /* [CP] Check Pods Manifest.lock */,
 				509B162F25BB320900E20518 /* Sources */,
 				509B163025BB320900E20518 /* Frameworks */,
 				509B163125BB320900E20518 /* Resources */,
+				F13A785846D07FCF59EC4545 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -267,6 +296,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		524DE7DCC9D3F3A5C2D967DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bikeFinder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F13A785846D07FCF59EC4545 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bikeFinder/Pods-bikeFinder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bikeFinder/Pods-bikeFinder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bikeFinder/Pods-bikeFinder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		509B162F25BB320900E20518 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -285,6 +356,7 @@
 				509B165525BB32CB00E20518 /* HomeViewController.swift in Sources */,
 				50E4CCE625C06F05007B320D /* MapViewModel.swift in Sources */,
 				509B167325BB344B00E20518 /* CountryNetworksTableViewCell.swift in Sources */,
+				50E4CCF125C088E8007B320D /* Toast.swift in Sources */,
 				50E4CC1F25BB89F9007B320D /* NetworkingService.swift in Sources */,
 				50E4CCE225C06EF3007B320D /* MapViewController.swift in Sources */,
 				50E4CCC725BF5762007B320D /* UIColor+Extensions.swift in Sources */,
@@ -427,6 +499,7 @@
 		};
 		509B164B25BB321000E20518 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55C17549FA7C7CECCE4ADBB5 /* Pods-bikeFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -446,6 +519,7 @@
 		};
 		509B164C25BB321000E20518 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D25701D9C8D5946E5BB46765 /* Pods-bikeFinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

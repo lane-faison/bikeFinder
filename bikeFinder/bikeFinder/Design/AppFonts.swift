@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 final class AppFonts {
     static let fontFamilyName: String = "ArialRoundedMTBold"
     
