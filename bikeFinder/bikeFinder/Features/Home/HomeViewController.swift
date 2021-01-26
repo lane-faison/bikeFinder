@@ -36,8 +36,13 @@ final class HomeViewController: UIViewController {
         registerTableViewCells()
         setupView()
         
-        viewModel.requestData {
-            self.tableView.reloadData()
+        viewModel.store.delegate = self
+        
+        viewModel.requestData { [weak self] (error) in
+            if let error = error {
+                Toast.showHint(type: .error, messageTitle: error.localizedDescription, actionTitle: "DISMISS")
+            }
+            self?.tableView.reloadData()
         }
     }
 }
@@ -96,5 +101,14 @@ extension HomeViewController: CountryNetworkCellDelegate {
         let mapVM = MapViewModel(bikeNetworks: networks, highlightedNetworkIndex: index)
         let mapVC = MapViewController.instantiate(with: mapVM)
         navigationController?.pushViewController(mapVC, animated: true)
+    }
+}
+
+// MARK: - DataStoreDelegate
+
+extension HomeViewController: DataStoreDelegate {
+    
+    func errorOccurred(error: Error) {
+        Toast.showHint(type: .error, messageTitle: error.localizedDescription, actionTitle: "DISMISS")
     }
 }

@@ -19,8 +19,8 @@ class HomeViewModel {
         return networkList
     }
     
-    func requestData(completion: @escaping () -> Void) {
-        store.requestNetworks { [weak self] (networks) in
+    func requestData(completion: @escaping (Error?) -> Void) {
+        store.requestNetworks { [weak self] (networks, error) in
             let networkDictionary = Dictionary(grouping: networks, by: { $0.country })
             var networkList: [NetworkSection] = []
             
@@ -30,7 +30,7 @@ class HomeViewModel {
             
             self?.networkList = networkList.sorted(by: { $0.sectionName < $1.sectionName })
             
-            completion()
+            completion(error)
         }
     }
 }

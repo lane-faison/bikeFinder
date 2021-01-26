@@ -8,10 +8,16 @@
 import Foundation
 import CoreData
 
+protocol DataStoreDelegate: class {
+    func errorOccurred(error: Error)
+}
+
 class DataStore: NSObject {
     
     let persistence = PersistenceService.shared
     let networking = NetworkingService.shared
+    
+    weak var delegate: DataStoreDelegate?
     
     private override init() {
         super.init()
@@ -20,7 +26,7 @@ class DataStore: NSObject {
     
     private var existingNetworkIds: [String] = []
     
-    func requestNetworks(completion: @escaping ([BikeNetwork]) -> Void) {
+    func requestNetworks(completion: @escaping ([BikeNetwork], Error?) -> Void) {
         fetchStoredNetworkIds()
         networking.request(Endpoint.networks.urlPath) { [weak self] (result) in
             switch result {
@@ -34,10 +40,12 @@ class DataStore: NSObject {
                     self?.saveAndFetchStoredNetworks(completion: completion)
                 } catch {
                     print("Error parsing JSON: \(error)")
+                    self?.delegate?.errorOccurred(error: error)
                     self?.saveAndFetchStoredNetworks(completion: completion)
                 }
             case .failure(let error):
                 print("Error with the request: \(error).\nResturning available data from CoreData")
+                self?.delegate?.errorOccurred(error: error)
                 self?.saveAndFetchStoredNetworks(completion: completion)
             }
         }
@@ -53,7 +61,7 @@ class DataStore: NSObject {
         }
     }
     
-    private func fetchStoredNetworks(completion: @escaping ([BikeNetwork]) -> Void) {
+    private func fetchStoredNetworks(completion: @escaping ([BikeNetwork], Error?) -> Void) {
         persistence.fetch(BikeNetwork.self, completion: completion)
     }
     
@@ -85,7 +93,7 @@ class DataStore: NSObject {
         }
     }
     
-    private func saveAndFetchStoredNetworks(completion: @escaping ([BikeNetwork]) -> Void) {
+    private func saveAndFetchStoredNetworks(completion: @escaping ([BikeNetwork], Error?) -> Void) {
         DispatchQueue.main.async {
             self.persistence.save {
                 self.fetchStoredNetworks(completion: completion)

@@ -39,15 +39,15 @@ class PersistenceService {
         }
     }
     
-    func fetch<T: NSManagedObject>(_ type: T.Type, completion: @escaping ([T]) -> Void) {
+    func fetch<T: NSManagedObject>(_ type: T.Type, completion: @escaping ([T], Error?) -> Void) {
         let request = NSFetchRequest<T>(entityName: String(describing: type))
         
         do {
             let objects = try context.fetch(request)
-            completion(objects)
+            completion(objects, nil)
         } catch let error {
             print("Error fetching persisted objects: \(error)")
-            completion([])
+            completion([], error)
         }
     }
 }
