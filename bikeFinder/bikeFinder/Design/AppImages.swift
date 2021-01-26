@@ -8,5 +8,6 @@
 import UIKit
 
 final class AppImages {
+    static let business = UIImage(imageLiteralResourceName: "business")
     static let locationMarker = UIImage(imageLiteralResourceName: "outline_place_black")
 }

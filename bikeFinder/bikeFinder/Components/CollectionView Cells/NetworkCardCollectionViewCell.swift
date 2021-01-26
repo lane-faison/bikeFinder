@@ -11,13 +11,6 @@ final class NetworkCardCollectionViewCell: UICollectionViewCell {
 
     static let identifier = String(describing: self)
     
-    private let placeMarkerImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.image = AppImages.locationMarker.withTintColor(AppColors.secondaryTextColor ?? .gray)
-        iv.contentMode = UIView.ContentMode.scaleAspectFit
-        return iv
-    }()
-    
     private let nameLabel: UILabel = {
         let l = UILabel()
         l.font = AppFonts.title
@@ -25,6 +18,15 @@ final class NetworkCardCollectionViewCell: UICollectionViewCell {
         l.backgroundColor = AppColors.accentColor
         l.textAlignment = .center
         l.numberOfLines = 2
+        return l
+    }()
+    
+    private let companyLabel: UILabel = {
+        let l = UILabel()
+        l.font = AppFonts.subtitle
+        l.textColor = AppColors.secondaryTextColor
+        l.textAlignment = .left
+        l.numberOfLines = 3
         return l
     }()
     
@@ -47,9 +49,9 @@ final class NetworkCardCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupCell() {
-        let spacer = UIView().withWidth(4)
-        let locationStack = horizontalStack(spacer, placeMarkerImageView.withDimension(14), cityLabel, spacing: 4, alignment: .leading, distribution: .fill)
-        let mainStack = verticalStack(nameLabel.withHeight(40), locationStack, distribution: .equalCentering)
+        let companyStack = horizontalStack(spacer(), listIconImageView(for: AppImages.business).withDimension(14), companyLabel, spacing: 4, alignment: .leading)
+        let locationStack = horizontalStack(spacer(), listIconImageView(for: AppImages.locationMarker).withDimension(14), cityLabel, spacing: 4, alignment: .leading)
+        let mainStack = verticalStack(nameLabel.withHeight(40), companyStack, locationStack, spacing: 4, distribution: .equalSpacing)
         
         contentView.addSubview(mainStack)
         mainStack.activateEdgeConstraints(withEdgeInsets: .init(top: 0, left: 0, bottom: 10, right: 0))
@@ -64,14 +66,31 @@ final class NetworkCardCollectionViewCell: UICollectionViewCell {
     
     func configure(with network: BikeNetwork) {
         nameLabel.text = network.networkName
+        companyLabel.text = network.company?.joined(separator: ",")
         cityLabel.text = network.city
-        cityLabel.sizeToFit()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
         nameLabel.text = nil
+        companyLabel.text = nil
         cityLabel.text = nil
+    }
+}
+
+// MARK: - UI Helpers
+
+extension NetworkCardCollectionViewCell {
+    
+    private func spacer() -> UIView {
+        return UIView().withWidth(4)
+    }
+    
+    private func listIconImageView(for icon: UIImage) -> UIImageView {
+        let iv = UIImageView()
+        iv.image = icon.withTintColor(AppColors.secondaryTextColor ?? .gray)
+        iv.contentMode = UIView.ContentMode.scaleAspectFit
+        return iv
     }
 }
