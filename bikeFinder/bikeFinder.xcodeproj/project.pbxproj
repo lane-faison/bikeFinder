@@ -30,8 +30,21 @@
 		50E4CCE625C06F05007B320D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCE525C06F05007B320D /* MapViewModel.swift */; };
 		50E4CCE925C0701B007B320D /* NetworkLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCE825C0701B007B320D /* NetworkLocation.swift */; };
 		50E4CCF125C088E8007B320D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCF025C088E8007B320D /* Toast.swift */; };
+		50E4CCFA25C0B6B1007B320D /* MapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CCF925C0B6B1007B320D /* MapViewModelTests.swift */; };
+		50E4CD0925C0B709007B320D /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CD0825C0B709007B320D /* HomeViewModelTests.swift */; };
+		50E4CD1F25C0E6BB007B320D /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E4CD1E25C0E6BB007B320D /* String+Extensions.swift */; };
 		A8CA8A4159772109E76565AA /* Pods_bikeFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328E75FE95A34E896D56325 /* Pods_bikeFinder.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50E4CCFC25C0B6B1007B320D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 509B162B25BB320900E20518 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 509B163225BB320900E20518;
+			remoteInfo = bikeFinder;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0328E75FE95A34E896D56325 /* Pods_bikeFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bikeFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +73,11 @@
 		50E4CCE525C06F05007B320D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		50E4CCE825C0701B007B320D /* NetworkLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLocation.swift; sourceTree = "<group>"; };
 		50E4CCF025C088E8007B320D /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		50E4CCF725C0B6B1007B320D /* bikeFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bikeFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50E4CCF925C0B6B1007B320D /* MapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelTests.swift; sourceTree = "<group>"; };
+		50E4CCFB25C0B6B1007B320D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50E4CD0825C0B709007B320D /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		50E4CD1E25C0E6BB007B320D /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		55C17549FA7C7CECCE4ADBB5 /* Pods-bikeFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bikeFinder.debug.xcconfig"; path = "Target Support Files/Pods-bikeFinder/Pods-bikeFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		D25701D9C8D5946E5BB46765 /* Pods-bikeFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bikeFinder.release.xcconfig"; path = "Target Support Files/Pods-bikeFinder/Pods-bikeFinder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +88,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8CA8A4159772109E76565AA /* Pods_bikeFinder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50E4CCF425C0B6B1007B320D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				509B163525BB320900E20518 /* bikeFinder */,
+				50E4CCF825C0B6B1007B320D /* bikeFinderTests */,
 				509B163425BB320900E20518 /* Products */,
 				2435A5C878D6F3E06682AD42 /* Pods */,
 				83264E9FDC3CAA9AE20767E6 /* Frameworks */,
@@ -99,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				509B163325BB320900E20518 /* bikeFinder.app */,
+				50E4CCF725C0B6B1007B320D /* bikeFinderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +193,7 @@
 				509B166E25BB342600E20518 /* UIView+Extensions.swift */,
 				50E4CC7325BCF771007B320D /* NSAttributedStringTransformer.swift */,
 				50E4CCC625BF5762007B320D /* UIColor+Extensions.swift */,
+				50E4CD1E25C0E6BB007B320D /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,6 +250,24 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		50E4CCF825C0B6B1007B320D /* bikeFinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				50E4CD0325C0B6C4007B320D /* Features */,
+				50E4CCFB25C0B6B1007B320D /* Info.plist */,
+			);
+			path = bikeFinderTests;
+			sourceTree = "<group>";
+		};
+		50E4CD0325C0B6C4007B320D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				50E4CCF925C0B6B1007B320D /* MapViewModelTests.swift */,
+				50E4CD0825C0B709007B320D /* HomeViewModelTests.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		83264E9FDC3CAA9AE20767E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +298,24 @@
 			productReference = 509B163325BB320900E20518 /* bikeFinder.app */;
 			productType = "com.apple.product-type.application";
 		};
+		50E4CCF625C0B6B1007B320D /* bikeFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50E4CCFE25C0B6B1007B320D /* Build configuration list for PBXNativeTarget "bikeFinderTests" */;
+			buildPhases = (
+				50E4CCF325C0B6B1007B320D /* Sources */,
+				50E4CCF425C0B6B1007B320D /* Frameworks */,
+				50E4CCF525C0B6B1007B320D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50E4CCFD25C0B6B1007B320D /* PBXTargetDependency */,
+			);
+			name = bikeFinderTests;
+			productName = bikeFinderTests;
+			productReference = 50E4CCF725C0B6B1007B320D /* bikeFinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -263,6 +327,10 @@
 				TargetAttributes = {
 					509B163225BB320900E20518 = {
 						CreatedOnToolsVersion = 12.3;
+					};
+					50E4CCF625C0B6B1007B320D = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 509B163225BB320900E20518;
 					};
 				};
 			};
@@ -280,6 +348,7 @@
 			projectRoot = "";
 			targets = (
 				509B163225BB320900E20518 /* bikeFinder */,
+				50E4CCF625C0B6B1007B320D /* bikeFinderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -291,6 +360,13 @@
 			files = (
 				509B164625BB321000E20518 /* LaunchScreen.storyboard in Resources */,
 				509B164325BB321000E20518 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50E4CCF525C0B6B1007B320D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +431,7 @@
 				50E4CC7425BCF771007B320D /* NSAttributedStringTransformer.swift in Sources */,
 				509B165525BB32CB00E20518 /* HomeViewController.swift in Sources */,
 				50E4CCE625C06F05007B320D /* MapViewModel.swift in Sources */,
+				50E4CD1F25C0E6BB007B320D /* String+Extensions.swift in Sources */,
 				509B167325BB344B00E20518 /* CountryNetworksTableViewCell.swift in Sources */,
 				50E4CCF125C088E8007B320D /* Toast.swift in Sources */,
 				50E4CC1F25BB89F9007B320D /* NetworkingService.swift in Sources */,
@@ -367,7 +444,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		50E4CCF325C0B6B1007B320D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50E4CCFA25C0B6B1007B320D /* MapViewModelTests.swift in Sources */,
+				50E4CD0925C0B709007B320D /* HomeViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50E4CCFD25C0B6B1007B320D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 509B163225BB320900E20518 /* bikeFinder */;
+			targetProxy = 50E4CCFC25C0B6B1007B320D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		509B164425BB321000E20518 /* LaunchScreen.storyboard */ = {
@@ -537,6 +631,46 @@
 			};
 			name = Release;
 		};
+		50E4CCFF25C0B6B1007B320D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 676FZT3DLA;
+				INFOPLIST_FILE = bikeFinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lanefaison.bikeFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bikeFinder.app/bikeFinder";
+			};
+			name = Debug;
+		};
+		50E4CD0025C0B6B1007B320D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 676FZT3DLA;
+				INFOPLIST_FILE = bikeFinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lanefaison.bikeFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bikeFinder.app/bikeFinder";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -554,6 +688,15 @@
 			buildConfigurations = (
 				509B164B25BB321000E20518 /* Debug */,
 				509B164C25BB321000E20518 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50E4CCFE25C0B6B1007B320D /* Build configuration list for PBXNativeTarget "bikeFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50E4CCFF25C0B6B1007B320D /* Debug */,
+				50E4CD0025C0B6B1007B320D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

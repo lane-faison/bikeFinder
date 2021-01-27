@@ -73,11 +73,11 @@ extension MapViewController {
     }
     
     @objc private func zoomIn() {
-        zoom(delta: 0.5)
+        zoom(delta: 0.3)
     }
     
     @objc private func zoomOut() {
-        zoom(delta: 2)
+        zoom(delta: 3)
     }
     
     private func zoom(delta: Double) {
