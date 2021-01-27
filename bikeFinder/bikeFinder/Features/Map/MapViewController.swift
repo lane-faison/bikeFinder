@@ -22,6 +22,7 @@ final class MapViewController: UIViewController {
                                        style: .plain,
                                        target: self,
                                        action: #selector(zoomIn))
+    
     private lazy var zoomOutButton = UIBarButtonItem(image: AppImages.zoomOut,
                                         style: .plain,
                                         target: self,
@@ -91,10 +92,10 @@ extension MapViewController {
         span.latitudeDelta *= delta
         span.longitudeDelta *= delta
         
-        
         span.latitudeDelta = min(maximumAllowableLatitudeDelta, span.latitudeDelta)
         span.longitudeDelta = min(maximumAllowableLongitudeDelta, span.longitudeDelta)
         
+        // Disable zoomOut button if maximum latitudeDelta & longitudeDelta reached
         zoomOutButton.isEnabled = (span.latitudeDelta != maximumAllowableLatitudeDelta || span.longitudeDelta != maximumAllowableLongitudeDelta)
         
         region.span = span
@@ -134,6 +135,7 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let capital = view.annotation as? NetworkLocation else { return }
+        
         let placeName = capital.title
         let placeInfo = capital.info
 

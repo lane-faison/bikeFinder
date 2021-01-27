@@ -133,17 +133,14 @@
 		509B163525BB320900E20518 /* bikeFinder */ = {
 			isa = PBXGroup;
 			children = (
-				50E4CCC925BF5A60007B320D /* Design */,
 				509B165225BB326300E20518 /* Components */,
-				509B165025BB325100E20518 /* Models */,
-				509B165125BB325800E20518 /* Features */,
-				509B164F25BB324800E20518 /* Services */,
+				50E4CCC925BF5A60007B320D /* Design */,
 				509B165325BB326B00E20518 /* Extensions */,
-				509B163625BB320900E20518 /* AppDelegate.swift */,
-				509B164225BB321000E20518 /* Assets.xcassets */,
-				509B164425BB321000E20518 /* LaunchScreen.storyboard */,
+				509B165125BB325800E20518 /* Features */,
+				509B165025BB325100E20518 /* Models */,
+				509B164F25BB324800E20518 /* Services */,
+				50E4CD2A25C12E53007B320D /* System */,
 				509B164725BB321000E20518 /* Info.plist */,
-				509B163F25BB320900E20518 /* bikeFinder.xcdatamodeld */,
 			);
 			path = bikeFinder;
 			sourceTree = "<group>";
@@ -171,6 +168,7 @@
 		509B165125BB325800E20518 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				509B164425BB321000E20518 /* LaunchScreen.storyboard */,
 				50E4CCE025C06EE6007B320D /* Map */,
 				50E4CCDE25C06EDE007B320D /* Home */,
 			);
@@ -225,6 +223,7 @@
 		50E4CCC925BF5A60007B320D /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				509B164225BB321000E20518 /* Assets.xcassets */,
 				50E4CCD325BFDAD2007B320D /* AppColors.swift */,
 				50E4CCCA25BF5A6E007B320D /* AppFonts.swift */,
 				50E4CCD625BFE1E6007B320D /* AppImages.swift */,
@@ -266,6 +265,15 @@
 				50E4CD0825C0B709007B320D /* HomeViewModelTests.swift */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		50E4CD2A25C12E53007B320D /* System */ = {
+			isa = PBXGroup;
+			children = (
+				509B163625BB320900E20518 /* AppDelegate.swift */,
+				509B163F25BB320900E20518 /* bikeFinder.xcdatamodeld */,
+			);
+			path = System;
 			sourceTree = "<group>";
 		};
 		83264E9FDC3CAA9AE20767E6 /* Frameworks */ = {

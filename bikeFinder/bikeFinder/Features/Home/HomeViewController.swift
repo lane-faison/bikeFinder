@@ -62,11 +62,13 @@ extension HomeViewController {
     private func getData() {
         activityIndicator.startAnimating()
         viewModel.requestData { [weak self] (error) in
+            guard let self = self else { return }
+            
             if let error = error {
                 Toast.showHint(type: .error, messageTitle: error.localizedDescription, actionTitle: "DISMISS")
             }
-            self?.tableView.reloadData()
-            self?.activityIndicator.stopAnimating()
+            self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
         }
     }
 }

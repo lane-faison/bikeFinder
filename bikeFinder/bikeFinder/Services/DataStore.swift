@@ -14,8 +14,8 @@ protocol DataStoreDelegate: class {
 
 class DataStore: NSObject {
     
-    let persistence = PersistenceService.shared
-    let networking = NetworkingService.shared
+    private let persistence = PersistenceService.shared
+    private let networking = NetworkingService.shared
     
     weak var delegate: DataStoreDelegate?
     

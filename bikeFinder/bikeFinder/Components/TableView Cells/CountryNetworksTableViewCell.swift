@@ -122,6 +122,7 @@ extension CountryNetworksTableViewCell: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 
 extension CountryNetworksTableViewCell: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.bikeNetworkTapped(at: indexPath.row, inNetworks: networks)
     }

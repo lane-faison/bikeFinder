@@ -12,6 +12,7 @@ enum ToastType {
     case error
     case info
 }
+
 class Toast {
     
     static func showHint(type: ToastType, messageTitle: String, actionTitle: String) {
