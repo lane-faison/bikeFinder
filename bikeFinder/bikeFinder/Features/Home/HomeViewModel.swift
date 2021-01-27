@@ -10,7 +10,6 @@ import Foundation
 class HomeViewModel {
     
     let viewTitle: String = "City Bikes"
-    
     let store = DataStore.shared
     
     private var networkList: [NetworkSection] = []

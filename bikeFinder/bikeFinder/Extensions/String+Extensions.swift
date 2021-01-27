@@ -9,6 +9,7 @@ import UIKit
 
 extension String {
     
+    // Returns a flag emoji with country initials (ex. 'US' -> '🇺🇸 - US')
     func flag() -> String {
         let base : UInt32 = 127397
         var s = ""

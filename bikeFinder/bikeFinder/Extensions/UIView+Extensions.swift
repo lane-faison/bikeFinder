@@ -99,7 +99,11 @@ extension UIView {
     ///   - spacing: space between views in the stack view
     ///   - alignment: layout of arranged views perpendicular to the stack view’s axis
     ///   - distribution: layout of arranged views parallel to the stack view’s axis
-    fileprivate func _stack(_ axis: NSLayoutConstraint.Axis = .vertical, views: [UIView], spacing: CGFloat = 0, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) -> UIStackView {
+    fileprivate func _stack(_ axis: NSLayoutConstraint.Axis = .vertical,
+                            views: [UIView],
+                            spacing: CGFloat = 0,
+                            alignment: UIStackView.Alignment = .fill,
+                            distribution: UIStackView.Distribution = .fill) -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: views)
         stackView.axis = axis
         stackView.spacing = spacing
@@ -109,12 +113,18 @@ extension UIView {
     }
     
     /// Creates a vertical stack view using the provided views
-    @discardableResult open func verticalStack(_ views: UIView..., spacing: CGFloat = 0, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) -> UIStackView {
+    @discardableResult open func verticalStack(_ views: UIView...,
+                                               spacing: CGFloat = 0,
+                                               alignment: UIStackView.Alignment = .fill,
+                                               distribution: UIStackView.Distribution = .fill) -> UIStackView {
         return _stack(.vertical, views: views, spacing: spacing, alignment: alignment, distribution: distribution)
     }
     
     /// Creates a horizontal stack view using the provided views
-    @discardableResult open func horizontalStack(_ views: UIView..., spacing: CGFloat = 0, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) -> UIStackView {
+    @discardableResult open func horizontalStack(_ views: UIView...,
+                                                 spacing: CGFloat = 0,
+                                                 alignment: UIStackView.Alignment = .fill,
+                                                 distribution: UIStackView.Distribution = .fill) -> UIStackView {
         return _stack(.horizontal, views: views, spacing: spacing, alignment: alignment, distribution: distribution)
     }
     

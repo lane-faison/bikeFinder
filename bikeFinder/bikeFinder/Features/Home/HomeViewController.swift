@@ -44,14 +44,22 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.store.delegate = self
+        
         title = viewModel.viewTitle
         
         setupNavigationBar()
         registerTableViewCells()
         setupView()
-        
-        viewModel.store.delegate = self
-        
+        getData()
+    }
+}
+
+// MARK: - Data Helpers
+
+extension HomeViewController {
+    
+    private func getData() {
         activityIndicator.startAnimating()
         viewModel.requestData { [weak self] (error) in
             if let error = error {
