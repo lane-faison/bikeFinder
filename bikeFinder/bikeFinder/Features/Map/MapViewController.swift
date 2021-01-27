@@ -18,6 +18,20 @@ final class MapViewController: UIViewController {
         return vc
     }
     
+    private lazy var zoomInButton = UIBarButtonItem(image: AppImages.zoomIn,
+                                       style: .plain,
+                                       target: self,
+                                       action: #selector(zoomIn))
+    private lazy var zoomOutButton = UIBarButtonItem(image: AppImages.zoomOut,
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(zoomOut))
+    
+    // ~135 is the maximum latitude, ~131 is the maximum longitude
+    // Not controlling the maximum latitude/longitude will crash the app after zooming out continually.
+    private let maximumAllowableLatitudeDelta: CLLocationDegrees = 135
+    private let maximumAllowableLongitudeDelta: CLLocationDegrees = 131
+    
     private lazy var map: MKMapView = {
         let m = MKMapView()
         m.delegate = self
@@ -47,15 +61,6 @@ extension MapViewController {
     }
     
     private func setupAppBarButtons() {
-        let zoomInButton = UIBarButtonItem(image: AppImages.zoomIn,
-                                           style: .plain,
-                                           target: self,
-                                           action: #selector(zoomIn))
-        let zoomOutButton = UIBarButtonItem(image: AppImages.zoomOut,
-                                            style: .plain,
-                                            target: self,
-                                            action: #selector(zoomOut))
-        
         navigationItem.rightBarButtonItems = [zoomOutButton, zoomInButton]
     }
     
@@ -85,6 +90,13 @@ extension MapViewController {
         var span: MKCoordinateSpan = map.region.span
         span.latitudeDelta *= delta
         span.longitudeDelta *= delta
+        
+        
+        span.latitudeDelta = min(maximumAllowableLatitudeDelta, span.latitudeDelta)
+        span.longitudeDelta = min(maximumAllowableLongitudeDelta, span.longitudeDelta)
+        
+        zoomOutButton.isEnabled = (span.latitudeDelta != maximumAllowableLatitudeDelta || span.longitudeDelta != maximumAllowableLongitudeDelta)
+        
         region.span = span
         map.setRegion(region, animated: true)
     }
